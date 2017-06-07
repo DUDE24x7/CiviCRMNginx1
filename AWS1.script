@@ -1,0 +1,72 @@
+#1/bin/bash
+# Shell script to load everything needed on AWS
+sudo apt-get update
+echo "NGINX - Start"
+sudo apt-get install nginx
+echo "NGINX - End"
+
+echo "GIT - Start"
+sudo apt-get install git
+echo "GIT - End"
+
+echo "DRUSH - Start"
+sudo apt-get install drush
+sudo drush version
+echo "DRUSH - End"
+
+echo "MySQL - Start"
+sudo apt-get install mysql-server
+sudo mysql_secure_installation
+#Script will prompt for actions
+echo "MySQL - End"
+echo "PHP fastCGI process manager - start"
+sudo apt-get install php-fpm php-mysql
+echo "PHP fastCGI process manager - end"
+
+#stop to configure
+#PHP
+#sudo nano /etc/php/7.0/fpm/php.ini change cgi.fix_pathinfo=0
+#Restart - sudo systemctl restart php7.0-fpm
+#NGINX
+#sudo nano /etc/nginx/sites-available/default
+#test sudo nginx –t
+#restart sudo systemctl reload nginx
+
+echo "DRUPAL - start"
+tar -xvf drupal7.tar
+cd Downloads
+sudo cp -rf drupal*/* /var/www/html/
+sudo chown www-data:www-data -R /var/www/html/
+sudo chmod -R 755 /var/www/html/
+echo "DRUPAL - end"
+cd
+echo "MariaDB for Drupal - start"
+sudo mysql_secure_installation
+#Script will prompt for actions
+sudo mysql -u root –p
+create database drupal;
+grant all privileges on drupal.* to drupaluser@localhost identified by 'Kilmarnock1';
+flush privileges;
+exit
+echo "MariaDB for Drupal - end"
+
+echo "Some PHP bits for Drupal - start"
+sudo apt-get install php-gd
+sudo apt-get install php-dom
+sudo apt-get install php7.0-mbstring
+
+sudo nginx –t
+sudo systemctl reload nginx
+echo "Some PHP bits for Drupal - end"
+
+echo "CiviCRM - start"
+# CiviCRM
+tar -xvf civicrm-4.7.19-drupal.tar
+cd /var/www/html/sites/all/modules
+sudo mkdir civicrm
+cd 
+sudo cp -rf civicrm*/* /var/www/html/sites/all/modules/civicrm/
+
+sudo chmod 755 /var/www/html/sites/default
+echo "CiviCRM - end"
+echo "Now install CiviCRM on Drupal from #http://<your_drupal_home>/sites/all/modules/civicrm/install/index.php"
