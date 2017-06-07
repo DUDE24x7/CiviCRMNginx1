@@ -1,11 +1,11 @@
 #1/bin/bash
 # Shell script to load everything needed on AWS
+#GIT already installed
+
 sudo apt-get update
 echo "NGINX - Start"
 sudo apt-get install nginx
 echo "NGINX - End"
-
-#GIT already installed
 
 echo "DRUSH - Start"
 sudo apt-get install drush
@@ -21,8 +21,7 @@ echo "PHP fastCGI process manager - start"
 sudo apt-get install php-fpm php-mysql
 echo "PHP fastCGI process manager - end"
 
-#stop to configure
-#PHP
+#Configure PHP
 #sudo nano /etc/php/7.0/fpm/php.ini change cgi.fix_pathinfo=0
 #Restart - sudo systemctl restart php7.0-fpm
 #NGINX
@@ -32,11 +31,16 @@ echo "PHP fastCGI process manager - end"
 
 echo "DRUPAL - start"
 wget https://ftp.drupal.org/files/projects/drupal-7.54.zip
+sudo apt install unzip
 unzip drupal*.zip
-cp -rf drupal*/* /var/www/html/
+sudo cp -rf drupal*/* /var/www/html/
 sudo chown www-data:www-data -R /var/www/html/
 sudo chmod -R 755 /var/www/html/
+sudo apt-get install php-gd
+sudo apt-get install php-dom
+sudo apt-get install php7.0-mbstring
 echo "DRUPAL - end"
+
 cd
 echo "MariaDB for Drupal - start"
 sudo mysql_secure_installation
@@ -48,14 +52,8 @@ flush privileges;
 exit
 echo "MariaDB for Drupal - end"
 
-echo "Some PHP bits for Drupal - start"
-sudo apt-get install php-gd
-sudo apt-get install php-dom
-sudo apt-get install php7.0-mbstring
-
 sudo nginx –t
 sudo systemctl reload nginx
-echo "Some PHP bits for Drupal - end"
 
 echo "CiviCRM - start"
 # CiviCRM
