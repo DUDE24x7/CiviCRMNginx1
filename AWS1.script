@@ -31,9 +31,9 @@ echo "PHP fastCGI process manager - end"
 #restart sudo systemctl reload nginx
 
 echo "DRUPAL - start"
-tar -xvf drupal7.tar
-cd Downloads
-sudo cp -rf drupal*/* /var/www/html/
+wget https://ftp.drupal.org/files/projects/drupal-7.54.zip
+unzip drupal*.zip
+cp -rf drupal*/* /var/www/html/
 sudo chown www-data:www-data -R /var/www/html/
 sudo chmod -R 755 /var/www/html/
 echo "DRUPAL - end"
