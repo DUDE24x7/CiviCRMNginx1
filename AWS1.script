@@ -5,9 +5,7 @@ echo "NGINX - Start"
 sudo apt-get install nginx
 echo "NGINX - End"
 
-echo "GIT - Start"
-sudo apt-get install git
-echo "GIT - End"
+#GIT already installed
 
 echo "DRUSH - Start"
 sudo apt-get install drush
