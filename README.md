@@ -1,6 +1,6 @@
 # CCTask
 
-#create an AWS ubuntu server
+#create an AWS ubuntu 16.04 server add rule to security group type = all tcp & source = anywhere
 
 #Copy the script below and run it after accessing the server from SSH
 
