@@ -21,13 +21,17 @@ echo "PHP fastCGI process manager - start"
 sudo apt-get install php-fpm php-mysql
 echo "PHP fastCGI process manager - end"
 
-#Configure PHP
-#sudo nano /etc/php/7.0/fpm/php.ini change cgi.fix_pathinfo=0
-#Restart - sudo systemctl restart php7.0-fpm
-#NGINX
-#sudo nano /etc/nginx/sites-available/default
-#test sudo nginx –t
-#restart sudo systemctl reload nginx
+echo "Configure PHP"
+sudo rm /etc/php/7.0/fpm/php.ini
+sudo cp CCTask/php.ini /etc/php/7.0/fpm/php.ini
+sudo systemctl restart php7.0-fpm
+echo "PHP Configured"
+echo "Configure NGINX"
+sudo rm /etc/nginx/sites-available/default
+sudo cp CCTask/nginexdefault /etc/nginx/sites-available/default
+test sudo nginx –t
+restart sudo systemctl reload nginx
+echo "NGINX Configured"
 
 echo "DRUPAL - start"
 wget https://ftp.drupal.org/files/projects/drupal-7.54.zip
@@ -57,12 +61,12 @@ sudo systemctl reload nginx
 
 echo "CiviCRM - start"
 # CiviCRM
-tar -xvf civicrm-4.7.19-drupal.tar
-cd /var/www/html/sites/all/modules
-sudo mkdir civicrm
+#tar -xvf civicrm-4.7.19-drupal.tar
+#cd /var/www/html/sites/all/modules
+#sudo mkdir civicrm
 cd 
-sudo cp -rf civicrm*/* /var/www/html/sites/all/modules/civicrm/
+#sudo cp -rf civicrm*/* /var/www/html/sites/all/modules/civicrm/
 
-sudo chmod 755 /var/www/html/sites/default
+#sudo chmod 755 /var/www/html/sites/default
 echo "CiviCRM - end"
 echo "Now install CiviCRM on Drupal from #http://<your_drupal_home>/sites/all/modules/civicrm/install/index.php"
