@@ -23,12 +23,12 @@ echo "PHP fastCGI process manager - end"
 
 echo "Configure PHP"
 sudo rm /etc/php/7.0/fpm/php.ini
-sudo cp CCTask/php.ini /etc/php/7.0/fpm/php.ini
+sudo cp gitdownload/CCTask/php.ini /etc/php/7.0/fpm/php.ini
 sudo systemctl restart php7.0-fpm
 echo "PHP Configured"
 echo "Configure NGINX"
 sudo rm /etc/nginx/sites-available/default
-sudo cp CCTask/nginexdefault /etc/nginx/sites-available/default
+sudo cp gitdownload/CCTask/nginexdefault /etc/nginx/sites-available/default
 test sudo nginx –t
 restart sudo systemctl reload nginx
 echo "NGINX Configured"
