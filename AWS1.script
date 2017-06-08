@@ -43,9 +43,17 @@ sudo apt-get install php-dom
 sudo apt-get install php7.0-mbstring
 echo "<<<---------- DRUPAL - end"
 
+echo "<<<---------- DRUSH - Start"
+sudo apt-get install drush
+sudo drush version
+echo "<<<---------- DRUSH - End"
+
 echo "<<<---------- MariaDB for Drupal - start"
 sudo mysql_secure_installation
 #Script will prompt for actions
+:'
+Multiline comment starts
+Do these in SSH by hand
 sudo mysql -u root –p
 create database drupal;
 grant all privileges on drupal.* to drupaluser@localhost identified by 'Kilmarnock1';
@@ -53,12 +61,6 @@ flush privileges;
 exit
 echo "<<<---------- MariaDB for Drupal - end"
 
-echo "<<<---------- DRUSH - Start"
-sudo apt-get install drush
-sudo drush version
-echo "<<<---------- DRUSH - End"
-
-#sudo nginx –t
 sudo systemctl reload nginx
 
 #echo "<<<---------- CiviCRM - start"
@@ -71,5 +73,7 @@ cd
 #sudo chmod 755 /var/www/html/sites/default
 #echo "<<<---------- CiviCRM - end"
 #echo "Now install CiviCRM on Drupal from #http://<your_drupal_home>/sites/all/modules/civicrm/install/index.php"
+Multiline comment ends
+'
 echo "<<<---------- Ending AWS1.script"
 exit 0
