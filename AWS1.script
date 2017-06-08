@@ -57,7 +57,7 @@ flush privileges;
 exit
 echo "<<<---------- MariaDB for Drupal - end"
 
-sudo nginx –t
+#sudo nginx –t
 sudo systemctl reload nginx
 
 #echo "<<<---------- CiviCRM - start"
