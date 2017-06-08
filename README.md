@@ -3,6 +3,7 @@
 #create an AWS ubuntu server
 
 #Copy the script below and run it after accessing the server from SSH
+
 sudo apt-get update;
 sudo apt-get install git;
 git config --global user.name “Tom”;
