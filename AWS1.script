@@ -32,6 +32,7 @@ sudo systemctl reload nginx
 echo "<<<---------- NGINX Configured"
 
 echo "<<<---------- DRUPAL - start"
+#NOTE - Default installation is a separate DB for CiviCRM and for Drupal
 wget https://ftp.drupal.org/files/projects/drupal-7.54.zip
 sudo apt install unzip
 unzip drupal*.zip
@@ -45,7 +46,6 @@ echo "<<<---------- DRUPAL - end"
 
 echo "<<<---------- DRUSH - Start"
 sudo apt-get install drush
-sudo drush version
 echo "<<<---------- DRUSH - End"
 
 echo "<<<---------- MariaDB for Drupal - start"
@@ -64,6 +64,7 @@ echo "<<<---------- MariaDB for Drupal - end"
 sudo systemctl reload nginx
 
 #echo "<<<---------- CiviCRM - start"
+#NOTE - Default installation is a separate DB for CiviCRM and for Drupal
 #tar -xvf civicrm-4.7.19-drupal.tar
 #cd /var/www/html/sites/all/modules
 #sudo mkdir civicrm
