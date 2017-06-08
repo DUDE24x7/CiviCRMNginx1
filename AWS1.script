@@ -49,10 +49,7 @@ sudo apt-get install drush
 echo "<<<---------- DRUSH - End"
 
 echo "<<<---------- MariaDB for Drupal - start"
-sudo mysql_secure_installation
-#Script will prompt for actions
-:'
-Multiline comment starts
+:' Multiline comment starts
 Do these in SSH by hand
 sudo mysql -u root –p sometimes this fails so try sudo mysql --user=root -p
 create database drupal;
