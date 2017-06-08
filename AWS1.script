@@ -2,6 +2,7 @@
 # Shell script to load everything needed on AWS
 #GIT already installed
 
+echo "Starting AWS1.script";
 sudo apt-get update
 echo "NGINX - Start"
 sudo apt-get install nginx
@@ -69,4 +70,6 @@ cd
 
 #sudo chmod 755 /var/www/html/sites/default
 echo "CiviCRM - end"
-echo "Now install CiviCRM on Drupal from #http://<your_drupal_home>/sites/all/modules/civicrm/install/index.php"
+#echo "Now install CiviCRM on Drupal from #http://<your_drupal_home>/sites/all/modules/civicrm/install/index.php"
+echo "Ending AWS1.script"
+exit 0
