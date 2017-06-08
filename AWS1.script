@@ -29,7 +29,7 @@ sudo systemctl restart php7.0-fpm
 echo "<<<---------- PHP Configured"
 echo "<<<---------- Configure NGINX to use PHP"
 sudo cp /etc/nginx/sites-available/default /etc/nginx/sites-available/defaultBAK
-sudo cp gitdownload/CCTask/nginexdefault /etc/nginx/sites-available/default
+sudo cp gitdownload/CCTask/nginxdefault /etc/nginx/sites-available/default
 test sudo nginx –t
 restart sudo systemctl reload nginx
 echo "<<<---------- NGINX Configured"
