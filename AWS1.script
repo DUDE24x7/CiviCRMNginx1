@@ -8,16 +8,12 @@ echo "<<<---------- NGINX - Start"
 sudo apt-get install nginx
 echo "<<<---------- NGINX - End"
 
-echo "<<<---------- DRUSH - Start"
-sudo apt-get install drush
-sudo drush version
-echo "<<<---------- DRUSH - End"
-
 echo "<<<---------- MySQL - Start"
 sudo apt-get install mysql-server
 sudo mysql_secure_installation
 #Script will prompt for actions
 echo "<<<---------- MySQL - End"
+
 echo "<<<---------- PHP fastCGI process manager - start"
 sudo apt-get install php-fpm php-mysql
 echo "<<<---------- PHP fastCGI process manager - end"
@@ -27,6 +23,7 @@ sudo cp /etc/php/7.0/fpm/php.ini /etc/php/7.0/fpm/php.iniBAK
 sudo cp gitdownload/CCTask/php.ini /etc/php/7.0/fpm/php.ini
 sudo systemctl restart php7.0-fpm
 echo "<<<---------- PHP Configured"
+
 echo "<<<---------- Configure NGINX to use PHP"
 sudo cp /etc/nginx/sites-available/default /etc/nginx/sites-available/defaultBAK
 sudo cp gitdownload/CCTask/nginxdefault /etc/nginx/sites-available/default
@@ -46,7 +43,6 @@ sudo apt-get install php-dom
 sudo apt-get install php7.0-mbstring
 echo "<<<---------- DRUPAL - end"
 
-cd
 echo "<<<---------- MariaDB for Drupal - start"
 sudo mysql_secure_installation
 #Script will prompt for actions
@@ -56,6 +52,11 @@ grant all privileges on drupal.* to drupaluser@localhost identified by 'Kilmarno
 flush privileges;
 exit
 echo "<<<---------- MariaDB for Drupal - end"
+
+echo "<<<---------- DRUSH - Start"
+sudo apt-get install drush
+sudo drush version
+echo "<<<---------- DRUSH - End"
 
 #sudo nginx –t
 sudo systemctl reload nginx
