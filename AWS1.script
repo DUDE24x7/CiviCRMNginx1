@@ -30,8 +30,8 @@ echo "<<<---------- PHP Configured"
 echo "<<<---------- Configure NGINX to use PHP"
 sudo cp /etc/nginx/sites-available/default /etc/nginx/sites-available/defaultBAK
 sudo cp gitdownload/CCTask/nginxdefault /etc/nginx/sites-available/default
-test sudo nginx –t
-restart sudo systemctl reload nginx
+#sudo nginx –t
+sudo systemctl reload nginx
 echo "<<<---------- NGINX Configured"
 
 echo "<<<---------- DRUPAL - start"
