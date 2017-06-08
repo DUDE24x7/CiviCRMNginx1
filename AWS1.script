@@ -54,7 +54,7 @@ sudo mysql_secure_installation
 :'
 Multiline comment starts
 Do these in SSH by hand
-sudo mysql -u root –p
+sudo mysql -u root –p sometimes this fails so try sudo mysql --user=root -p
 create database drupal;
 grant all privileges on drupal.* to drupaluser@localhost identified by 'Kilmarnock1';
 flush privileges;
