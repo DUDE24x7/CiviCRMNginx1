@@ -52,7 +52,7 @@ echo "<<<---------- DRUSH - End"
 echo "<<<---------- CiviCRM - start"
 #NOTE - Default installation is a separate DB for CiviCRM and for Drupal
 wget https://download.civicrm.org/civicrm-4.7.19-drupal.tar.gz
-tar -xvf civicrm-4.7.19-drupal.tar
+tar -xvf civicrm-4.7.19-drupal.tar.gz
 cd /var/www/html/sites/all/modules
 sudo mkdir civicrm
 cd 
