@@ -25,6 +25,10 @@ CiviCRM 4.7.19
 Note – Default installation is a separate DB for CiviCRM and for Drupal
 https://wiki.civicrm.org/confluence/display/CRMDOC/Installing+CiviCRM+for+Drupal+7
 
+Backup and recovery script to Amazon S3 using the Backup and Migrate Drupal module
+https://www.drupal.org/project/backup_migrate
+https://www.lullabot.com/articles/module-monday-backup-and-migrate
+
 
 The requirement:
 Task 1: Drupal and CiviCRM PCI compliant and secure cloud installation
