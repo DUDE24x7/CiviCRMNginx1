@@ -61,13 +61,9 @@ sudo chmod 755 /var/www/html/sites/default
 echo "<<<---------- CiviCRM - end"
 
 echo "<<<---------- MariaDB for Drupal - start"
-#Do these in SSH by hand
 #sudo mysql --user=root -p
-#create database drupal;
-#grant all privileges on drupal.* to drupaluser@localhost identified by 'Kilmarnock1';
-#flush privileges;
-#exit
-#sudo systemctl reload nginx
+sudo mysql < gitdownload/CCTask/createDB
+sudo systemctl reload nginx
 echo "<<<---------- MariaDB for Drupal - end"
 
 echo "Now setup Drupal from #http://<your_home> and then"
