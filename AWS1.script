@@ -2,7 +2,13 @@
 # Shell script to load everything needed on AWS
 #GIT already installed
 
-echo "<<<---------- Starting AWS1.script"
+#ensure the gitdownload directory has been created
+if [ -f .gitdownload/CCTask/php.ini ]; then
+    echo "<<<---------- Starting AWS1.script"
+else
+    echo "<<<---------- ERROR gitdownload directory does not exist"
+    exit 1
+fi
 
 sudo apt-get update
 echo "<<<---------- NGINX - Start"
