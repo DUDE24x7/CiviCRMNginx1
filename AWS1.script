@@ -45,6 +45,11 @@ sudo apt-get install php-dom
 sudo apt-get install php7.0-mbstring
 echo "<<<---------- DRUPAL - end"
 
+echo "<<<---------- MariaDB for Drupal - start"
+sudo mysql < gitdownload/CCTask/createDB --user=root -p
+sudo systemctl reload nginx
+echo "<<<---------- MariaDB for Drupal - end"
+
 echo "<<<---------- DRUSH - Start"
 sudo apt-get install drush
 echo "<<<---------- DRUSH - End"
@@ -59,11 +64,6 @@ cd
 sudo cp -rf civicrm*/* /var/www/html/sites/all/modules/civicrm/
 sudo chmod 755 /var/www/html/sites/default
 echo "<<<---------- CiviCRM - end"
-
-echo "<<<---------- MariaDB for Drupal - start"
-sudo mysql < gitdownload/CCTask/createDB --user=root -p
-sudo systemctl reload nginx
-echo "<<<---------- MariaDB for Drupal - end"
 
 echo "Now setup Drupal from #http://<your_home> and then"
 echo "Install CiviCRM on Drupal from #http://<your_drupal_home>/sites/all/modules/civicrm/install/index.php"
