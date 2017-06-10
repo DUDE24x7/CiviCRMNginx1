@@ -61,8 +61,7 @@ sudo chmod 755 /var/www/html/sites/default
 echo "<<<---------- CiviCRM - end"
 
 echo "<<<---------- MariaDB for Drupal - start"
-#sudo mysql --user=root -p
-sudo mysql < gitdownload/CCTask/createDB
+sudo mysql < gitdownload/CCTask/createDB --user=root -p
 sudo systemctl reload nginx
 echo "<<<---------- MariaDB for Drupal - end"
 
