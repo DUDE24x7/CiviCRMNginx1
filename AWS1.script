@@ -3,7 +3,7 @@
 #GIT already installed
 
 #ensure the gitdownload directory has been created
-if [ -f .gitdownload/CCTask/php.ini ]; then
+if [ -f gitdownload/CCTask/php.ini ]; then
     echo "<<<---------- Starting AWS1.script"
 else
     echo "<<<---------- ERROR gitdownload directory does not exist"
