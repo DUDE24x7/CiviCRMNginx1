@@ -46,7 +46,7 @@ if false; then echo "<<<---------- ERROR sudo cp gitdownload/CCTask/nginxdefault
 sudo systemctl reload nginx
 if false; then echo "<<<---------- ERROR sudo systemctl reload nginx FAIL"; exit $?; fi
 echo "<<<---------- NGINX Configured"
-
+:'
 echo "<<<---------- Certbot/LetsEncrypt - start"
 sudo apt-get install software-properties-common
 if false; then echo "<<<---------- ERROR sudo apt-get install software-properties-common FAIL"; exit $?; fi
@@ -59,7 +59,7 @@ if false; then echo "<<<---------- ERROR sudo apt-get install python-certbot-ngi
 sudo certbot --nginx
 if false; then echo "<<<---------- ERROR sudo certbot --nginx FAIL"; exit $?; fi
 echo "<<<---------- Certbot/LetsEncrypt - end"
-
+'
 echo "<<<---------- DRUPAL - start"
 #NOTE - Default installation is a separate DB for CiviCRM and for Drupal
 wget https://ftp.drupal.org/files/projects/drupal-7.54.zip
