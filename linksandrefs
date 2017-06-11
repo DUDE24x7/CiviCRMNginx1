@@ -29,6 +29,8 @@ Backup and recovery script to Amazon S3 using the Backup and Migrate Drupal modu
 https://www.drupal.org/project/backup_migrate
 https://www.lullabot.com/articles/module-monday-backup-and-migrate
 
+HTTPS on AWS with Cerbot
+https://medium.freecodecamp.com/going-https-on-amazon-ec2-ubuntu-14-04-with-lets-encrypt-certbot-on-nginx-696770649e76
 
 The requirement:
 Task 1: Drupal and CiviCRM PCI compliant and secure cloud installation
