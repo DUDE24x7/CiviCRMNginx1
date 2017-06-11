@@ -18,3 +18,6 @@ cd;
 echo "AWS1.script is starting";
 gitdownload/CCTask/AWS1.script;
 echo "AWS1.script has ended";
+
+Afterwards setup Drupal from #http://<your_home> and then
+Install CiviCRM on Drupal from http://<your_drupal_home>/sites/all/modules/civicrm/install/index.php
