@@ -13,62 +13,99 @@ fi
 sudo apt-get update
 echo "<<<---------- NGINX - Start"
 sudo apt-get install nginx
+if false; then echo "<<<---------- ERROR sudo apt-get install nginx FAIL"; exit $?; fi
 echo "<<<---------- NGINX - End"
 
 echo "<<<---------- MySQL - Start"
 sudo apt-get install mysql-server
+if false; then echo "<<<---------- ERROR sudo apt-get install mysql-server FAIL"; exit $?; fi
 sudo mysql_secure_installation
 #Script will prompt for actions
 echo "<<<---------- MySQL - End"
 
 echo "<<<---------- PHP fastCGI process manager - start"
 sudo apt-get install php-fpm php-mysql
+if false; then echo "<<<---------- ERROR sudo apt-get install php-fpm php-mysql FAIL"; exit $?; fi
 echo "<<<---------- PHP fastCGI process manager - end"
 
 echo "<<<---------- Install/Configure PHP fastCGI process manager"
 sudo cp /etc/php/7.0/fpm/php.ini /etc/php/7.0/fpm/php.iniBAK
+if false; then echo "<<<---------- ERROR sudo cp /etc/php/7.0/fpm/php.ini /etc/php/7.0/fpm/php.iniBAK FAIL"; exit $?; fi
 sudo cp gitdownload/CCTask/php.ini /etc/php/7.0/fpm/php.ini
+if false; then echo "<<<---------- ERROR sudo cp gitdownload/CCTask/php.ini /etc/php/7.0/fpm/php.ini FAIL"; exit $?; fi
 sudo systemctl restart php7.0-fpm
+if false; then echo "<<<---------- ERROR sudo systemctl restart php7.0-fpm FAIL"; exit $?; fi
 echo "<<<---------- PHP Configured"
 
 echo "<<<---------- Configure NGINX to use PHP"
 sudo cp /etc/nginx/sites-available/default /etc/nginx/sites-available/defaultBAK
+if false; then echo "<<<---------- ERROR sudo cp /etc/nginx/sites-available/default /etc/nginx/sites-available/defaultBAK FAIL"; exit $?; fi
 sudo cp gitdownload/CCTask/nginxdefault /etc/nginx/sites-available/default
+if false; then echo "<<<---------- ERROR sudo cp gitdownload/CCTask/nginxdefault /etc/nginx/sites-available/default FAIL"; exit $?; fi
 #sudo nginx –t
 sudo systemctl reload nginx
+if false; then echo "<<<---------- ERROR sudo systemctl reload nginx FAIL"; exit $?; fi
 echo "<<<---------- NGINX Configured"
+
+echo "<<<---------- Certbot/LetsEncrypt - start"
+sudo apt-get install software-properties-common
+if false; then echo "<<<---------- ERROR sudo apt-get install software-properties-common FAIL"; exit $?; fi
+sudo add-apt-repository ppa:certbot/certbot
+if false; then echo "<<<---------- ERROR sudo add-apt-repository ppa:certbot/certbot FAIL"; exit $?; fi
+sudo apt-get update
+if false; then echo "<<<---------- ERROR sudo apt-get update FAIL"; exit $?; fi
+sudo apt-get install python-certbot-nginx 
+if false; then echo "<<<---------- ERROR sudo apt-get install python-certbot-nginx FAIL"; exit $?; fi
+sudo certbot --nginx
+if false; then echo "<<<---------- ERROR sudo certbot --nginx FAIL"; exit $?; fi
+echo "<<<---------- Certbot/LetsEncrypt - end"
 
 echo "<<<---------- DRUPAL - start"
 #NOTE - Default installation is a separate DB for CiviCRM and for Drupal
 wget https://ftp.drupal.org/files/projects/drupal-7.54.zip
+if false; then echo "<<<---------- ERROR wget https://ftp.drupal.org/files/projects/drupal-7.54.zip FAIL"; exit $?; fi
 sudo apt install unzip
+if false; then echo "<<<---------- ERROR wget sudo apt install unzip FAIL"; exit $?; fi
 unzip drupal*.zip
+if false; then echo "<<<---------- ERROR unzip drupal*.zip FAIL"; exit $?; fi
 sudo cp -rf drupal*/* /var/www/html/
+if false; then echo "<<<---------- ERROR sudo cp -rf drupal*/* /var/www/html/ FAIL"; exit $?; fi
 sudo chown www-data:www-data -R /var/www/html/
+if false; then echo "<<<---------- ERROR sudo chown www-data:www-data -R /var/www/html/ FAIL"; exit $?; fi
 sudo chmod -R 755 /var/www/html/
-sudo apt-get install php-gd
-sudo apt-get install php-dom
-sudo apt-get install php7.0-mbstring
+if false; then echo "<<<---------- ERROR sudo chmod -R 755 /var/www/html/ FAIL"; exit $?; fi
+sudo apt-get install php-gd php-dom php7.0-mbstring
+if false; then echo "<<<---------- ERROR sudo apt-get install php-gd php-dom php7.0-mbstring FAIL"; exit $?; fi
 echo "<<<---------- DRUPAL - end"
 
 echo "<<<---------- MariaDB for Drupal - start"
 sudo mysql < gitdownload/CCTask/createDB --user=root -p
+if false; then echo "<<<---------- ERROR sudo mysql < gitdownload/CCTask/createDB --user=root -p FAIL"; exit $?; fi
 sudo systemctl reload nginx
+if false; then echo "<<<---------- ERROR sudo systemctl reload nginx FAIL"; exit $?; fi
 echo "<<<---------- MariaDB for Drupal - end"
 
 echo "<<<---------- DRUSH - Start"
 sudo apt-get install drush
+if false; then echo "<<<---------- ERROR sudo apt-get install drush FAIL"; exit $?; fi
 echo "<<<---------- DRUSH - End"
 
 echo "<<<---------- CiviCRM - start"
 #NOTE - Default installation is a separate DB for CiviCRM and for Drupal
 wget https://download.civicrm.org/civicrm-4.7.19-drupal.tar.gz
+if false; then echo "<<<---------- ERROR wget https://download.civicrm.org/civicrm-4.7.19-drupal.tar.gz FAIL"; exit $?; fi
 tar -xvf civicrm-4.7.19-drupal.tar.gz
+if false; then echo "<<<---------- ERROR tar -xvf civicrm-4.7.19-drupal.tar.gz FAIL"; exit $?; fi
 cd /var/www/html/sites/all/modules
+if false; then echo "<<<---------- ERROR cd /var/www/html/sites/all/modules FAIL"; exit $?; fi
 sudo mkdir civicrm
+if false; then echo "<<<---------- ERROR sudo mkdir civicrm FAIL"; exit $?; fi
 cd 
+if false; then echo "<<<---------- ERROR cd FAIL"; exit $?; fi
 sudo cp -rf civicrm*/* /var/www/html/sites/all/modules/civicrm/
+if false; then echo "<<<---------- ERROR sudo cp -rf civicrm*/* /var/www/html/sites/all/modules/civicrm/ FAIL"; exit $?; fi
 sudo chmod 755 /var/www/html/sites/default
+if false; then echo "<<<---------- ERROR sudo chmod 755 /var/www/html/sites/default FAIL"; exit $?; fi
 echo "<<<---------- CiviCRM - end"
 
 echo "Now setup Drupal from #http://<your_home> and then"
