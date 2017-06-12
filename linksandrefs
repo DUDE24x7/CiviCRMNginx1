@@ -19,7 +19,7 @@ Nothing to do here either.
 Running Drush https://www.digitalocean.com/community/tutorials/a-beginner-s-guide-to-drush-the-drupal-shell
 
 Configure Drupal to have a private files folder - https://www.drupal.org/docs/8/core/modules/file/overview
-or a truly private file system the files folder should be located above the public root so that they aren't accessible from the public root
+For a truly private file system the files folder should be located above the public root so that they aren't accessible from the public root
 
 CiviCRM 4.7.19
 Note – Default installation is a separate DB for CiviCRM and for Drupal
@@ -30,9 +30,10 @@ https://www.drupal.org/project/backup_migrate
 https://www.lullabot.com/articles/module-monday-backup-and-migrate
 
 HTTPS on AWS with Cerbot
+https://coderwall.com/p/e7gzbq/https-with-certbot-for-nginx-on-amazon-linux
 https://medium.freecodecamp.com/going-https-on-amazon-ec2-ubuntu-14-04-with-lets-encrypt-certbot-on-nginx-696770649e76
 
-The requirement:
+<b>The requirement:</b>
 Task 1: Drupal and CiviCRM PCI compliant and secure cloud installation
 
 Create a new PCI compliant server using Nginx on an AWS micro instance (or similar).
