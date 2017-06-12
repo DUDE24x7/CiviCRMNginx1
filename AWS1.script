@@ -48,6 +48,8 @@ if false; then echo "<<<---------- ERROR sudo systemctl reload nginx FAIL"; exit
 echo "<<<---------- NGINX Configured"
 :'
 echo "<<<---------- Certbot/LetsEncrypt - start"
+sudo service nginx stop
+if false; then echo "<<<---------- ERROR sudo service nginx stop FAIL"; exit $?; fi
 sudo apt-get install software-properties-common
 if false; then echo "<<<---------- ERROR sudo apt-get install software-properties-common FAIL"; exit $?; fi
 sudo add-apt-repository ppa:certbot/certbot
@@ -58,6 +60,8 @@ sudo apt-get install python-certbot-nginx
 if false; then echo "<<<---------- ERROR sudo apt-get install python-certbot-nginx FAIL"; exit $?; fi
 sudo certbot --nginx
 if false; then echo "<<<---------- ERROR sudo certbot --nginx FAIL"; exit $?; fi
+sudo service nginx start
+if false; then echo "<<<---------- ERROR sudo service nginx start FAIL"; exit $?; fi
 echo "<<<---------- Certbot/LetsEncrypt - end"
 '
 echo "<<<---------- DRUPAL - start"
