@@ -63,6 +63,8 @@ sudo certbot --nginx
 if false; then echo "<<<---------- ERROR sudo certbot --nginx FAIL"; exit $?; fi
 sudo service nginx start
 if false; then echo "<<<---------- ERROR sudo service nginx start FAIL"; exit $?; fi
+#Certs valid 90 days to test renewal certbot renew --dry-run
+#The Certbot packages on your system come with a cron job that will renew your certificates automatically before they expire
 echo "<<<---------- Certbot/LetsEncrypt - end"
 '
 echo "<<<---------- DRUPAL - start"
