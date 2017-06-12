@@ -59,6 +59,7 @@ if false; then echo "<<<---------- ERROR sudo apt-get update FAIL"; exit $?; fi
 sudo apt-get install python-certbot-nginx 
 if false; then echo "<<<---------- ERROR sudo apt-get install python-certbot-nginx FAIL"; exit $?; fi
 sudo certbot --nginx
+#Note - According to the documentation, Running this command will get a certificate for you and have Certbot edit your Nginx configuration automatically to serve it
 if false; then echo "<<<---------- ERROR sudo certbot --nginx FAIL"; exit $?; fi
 sudo service nginx start
 if false; then echo "<<<---------- ERROR sudo service nginx start FAIL"; exit $?; fi
