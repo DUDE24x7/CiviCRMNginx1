@@ -46,7 +46,7 @@ if false; then echo "<<<---------- ERROR sudo cp gitdownload/CCTask/nginxdefault
 sudo systemctl reload nginx
 if false; then echo "<<<---------- ERROR sudo systemctl reload nginx FAIL"; exit $?; fi
 echo "<<<---------- NGINX Configured"
-:'
+:' Commented out start
 echo "<<<---------- Certbot/LetsEncrypt - start"
 sudo service nginx stop
 if false; then echo "<<<---------- ERROR sudo service nginx stop FAIL"; exit $?; fi
@@ -60,10 +60,9 @@ sudo apt-get install python-certbot-nginx
 if false; then echo "<<<---------- ERROR sudo apt-get install python-certbot-nginx FAIL"; exit $?; fi
 #sudo certbot --nginx
 #According to the documentation, running this command will get a certificate for you and have Certbot edit your Nginx configuration automatically to serve it 
-#But it does not do that, the following command works but the /etc/nginx/nginx.conf needs to be edited
+#But it does not do that, the following command works but the /etc/nginx/nginx.conf needs to be modified
 sudo certbot certonly --standalone -d dude24x7.co.uk
 if false; then echo "<<<---------- ERROR sudo certbot certonly --standalone -d dude24x7.co.uk FAIL"; exit $?; fi
-#copy /etc/nginx/nginx.conf
 sudo cp /etc/nginx/nginx.conf /etc/nginx/nginx.confBAK
 if false; then echo "<<<---------- ERROR sudo cp /etc/nginx/nginx.conf /etc/nginx/nginx.confBAK FAIL"; exit $?; fi
 sudo cp gitdownload/CCTask/nginx.conf /etc/nginx/nginx.conf
@@ -73,7 +72,7 @@ if false; then echo "<<<---------- ERROR sudo service nginx start FAIL"; exit $?
 #Certs valid 90 days to test renewal sudo certbot renew --dry-run
 #The Certbot packages on your system come with a cron job that will renew your certificates automatically before they expire (allegedly)
 echo "<<<---------- Certbot/LetsEncrypt - end"
-'
+Commented out end'
 echo "<<<---------- DRUPAL - start"
 #NOTE - Default installation is a separate DB for CiviCRM and for Drupal
 wget https://ftp.drupal.org/files/projects/drupal-7.54.zip
