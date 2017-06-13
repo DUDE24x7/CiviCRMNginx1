@@ -33,6 +33,7 @@ HTTPS on AWS with Cerbot
 https://certbot.eff.org/#ubuntuxenial-nginx
 https://medium.freecodecamp.com/going-https-on-amazon-ec2-ubuntu-14-04-with-lets-encrypt-certbot-on-nginx-696770649e76
 https://coderwall.com/p/e7gzbq/https-with-certbot-for-nginx-on-amazon-linux
+https://blog.nikitaog.me/2016/02/12/how-to-setup-ssl-on-amazon-web-services-with-nginx/
 
 The requirement:
 Task 1: Drupal and CiviCRM PCI compliant and secure cloud installation
