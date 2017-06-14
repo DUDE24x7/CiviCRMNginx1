@@ -61,7 +61,7 @@ sudo chown www-data:www-data -R /var/www/html/
 if false; then echo "<<<---------- ERROR sudo chown www-data:www-data -R /var/www/html/ FAIL"; exit $?; fi
 sudo chmod -R 755 /var/www/html/
 if false; then echo "<<<---------- ERROR sudo chmod -R 755 /var/www/html/ FAIL"; exit $?; fi
-sudo apt-get install php-gd php-dom php7.0-mbstring php-curl
+sudo apt-get install php-gd php-dom php7.0-mbstring php-curl php-zip
 if false; then echo "<<<---------- ERROR sudo apt-get install php-gd php-dom php7.0-mbstring php-curl FAIL"; exit $?; fi
 sudo mkdir /var/www/drupalprivate
 if false; then echo "<<<---------- ERROR sudo mkdir /var/www/drupalprivate FAIL"; exit $?; fi
