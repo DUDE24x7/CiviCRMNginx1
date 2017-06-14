@@ -35,6 +35,7 @@ https://medium.freecodecamp.com/going-https-on-amazon-ec2-ubuntu-14-04-with-lets
 https://coderwall.com/p/e7gzbq/https-with-certbot-for-nginx-on-amazon-linux
 https://blog.nikitaog.me/2016/02/12/how-to-setup-ssl-on-amazon-web-services-with-nginx/
 https://www.digitalocean.com/community/tutorials/understanding-nginx-server-and-location-block-selection-algorithms
+Test ssl with https://www.ssllabs.com/ssltest/ enter domain as www.xxx.co.uk
 
 The requirement:
 Task 1: Drupal and CiviCRM PCI compliant and secure cloud installation
