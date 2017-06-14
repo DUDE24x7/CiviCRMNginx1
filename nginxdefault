@@ -6,6 +6,7 @@ server {
 	#
 	listen 443 ssl default_server;
 	listen [::]:443 ssl default_server;
+	# If the above are not opened you get Error 502 bad gateway when using https
 	#
 	# Note: You should disable gzip for SSL traffic.
 	# See: https://bugs.debian.org/773332
