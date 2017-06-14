@@ -63,6 +63,10 @@ sudo chmod -R 755 /var/www/html/
 if false; then echo "<<<---------- ERROR sudo chmod -R 755 /var/www/html/ FAIL"; exit $?; fi
 sudo apt-get install php-gd php-dom php7.0-mbstring php-curl
 if false; then echo "<<<---------- ERROR sudo apt-get install php-gd php-dom php7.0-mbstring php-curl FAIL"; exit $?; fi
+sudo mkdir /var/www/drupalprivate
+if false; then echo "<<<---------- ERROR sudo mkdir /var/www/drupalprivate FAIL"; exit $?; fi
+sudo chown www-data:www-data /var/www/drupalprivate
+if false; then echo "<<<---------- ERROR sudo chown www-data:www-data /var/www/drupalprivate FAIL"; exit $?; fi
 echo "<<<---------- DRUPAL - end"
 
 echo "<<<---------- MariaDB for Drupal - start"
