@@ -67,15 +67,15 @@ Test ssl with https://www.ssllabs.com/ssltest/ enter domain as www.xxx.co.uk
 The requirement:
 Task 1: Drupal and CiviCRM PCI compliant and secure cloud installation
 
-Create a new PCI compliant server using Nginx on an AWS micro instance (or similar).
+Create a new PCI compliant server using Nginx on an AWS micro instance (or similar). (done with AWS)
 
-Install Drupal 7 and CiviCRM this server in a secure fashion. You may wish to research what Nginx configurations are required to make both Drupal AND CiviCRM secure. Please install CiviCRM and Drupal in different databases as this is considered best practice.
+Install Drupal 7 and CiviCRM this server in a secure fashion. You may wish to research what Nginx configurations are required to make both Drupal AND CiviCRM secure. Please install CiviCRM and Drupal in different databases as this is considered best practice. (this is the default)
 
-1 Install Drush to the server for the appropriate user
-2 Install Git to the server for the appropriate user
-3 Configure Drupal to have a private files folder.
-4 Configure the CiviCRM extension directory correctly.
-5 Ensure that the Nginx configuration is secure for CiviCRM.
+1 Install Drush to the server for the appropriate user (done)
+2 Install Git to the server for the appropriate user (done)
+3 Configure Drupal to have a private files folder (done)
+4 Configure the CiviCRM extension directory correctly (done)
+5 Ensure that the Nginx configuration is secure for CiviCRM (done)
 6 Configure Drupal so that Drupal views can use the CiviCRM database (https://wiki.civicrm.org/confluence/display/CRMDOC/Views3+Integration)
 
 Setup a suitable backup and recovery script to Amazon S3 using the Backup and Migrate Drupal module and document what will be backed up.
