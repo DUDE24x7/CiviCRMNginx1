@@ -1,7 +1,7 @@
 # CCTask
 
 #create an AWS ubuntu 16.04 server
-#Security group rules: SSH = port 20 (My Ip); HTTP = port 80 (anywhere); HTTPS = port 443 (anywhere)
+#Security group rules: SSH = port 20 (anywhere - normally I would set My Ip); HTTP = port 80 (anywhere); HTTPS = port 443 (anywhere)
 
 #Copy the script below and run it after accessing the server from SSH
 
