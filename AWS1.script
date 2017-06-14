@@ -61,8 +61,8 @@ sudo chown www-data:www-data -R /var/www/html/
 if false; then echo "<<<---------- ERROR sudo chown www-data:www-data -R /var/www/html/ FAIL"; exit $?; fi
 sudo chmod -R 755 /var/www/html/
 if false; then echo "<<<---------- ERROR sudo chmod -R 755 /var/www/html/ FAIL"; exit $?; fi
-sudo apt-get install php-gd php-dom php7.0-mbstring
-if false; then echo "<<<---------- ERROR sudo apt-get install php-gd php-dom php7.0-mbstring FAIL"; exit $?; fi
+sudo apt-get install php-gd php-dom php7.0-mbstring php-curl
+if false; then echo "<<<---------- ERROR sudo apt-get install php-gd php-dom php7.0-mbstring php-curl FAIL"; exit $?; fi
 echo "<<<---------- DRUPAL - end"
 
 echo "<<<---------- MariaDB for Drupal - start"
@@ -95,7 +95,6 @@ sudo chmod 755 /var/www/html/sites/default
 if false; then echo "<<<---------- ERROR sudo chmod 755 /var/www/html/sites/default FAIL"; exit $?; fi
 echo "<<<---------- CiviCRM - end"
 
-:' Commented out start
 echo "<<<---------- Certbot/LetsEncrypt - start"
 sudo service nginx stop
 if false; then echo "<<<---------- ERROR sudo service nginx stop FAIL"; exit $?; fi
@@ -110,13 +109,16 @@ if false; then echo "<<<---------- ERROR sudo apt-get install python-certbot-ngi
 sudo certbot --nginx -d dude24x7.co.uk
 #this command will gets a certificate and edits the Nginx configuration automatically to serve it 
 if false; then echo "<<<---------- ERROR sudo certbot --nginx -d dude24x7.co.uk FAIL"; exit $?; fi
+#nginx may fail to start due to unable to bind to ports 80 and 443 so:
+sudo fuser -k 80/tcp
+if false; then echo "<<<---------- ERROR sudo fuser -k 80/tcp FAIL"; exit $?; fi
+sudo fuser -k 443/tcp
+if false; then echo "<<<---------- ERROR sudo fuser -k 443/tcp FAIL"; exit $?; fi
 sudo service nginx start
 if false; then echo "<<<---------- ERROR sudo service nginx start FAIL"; exit $?; fi
-#If nginx fails to start due to unable to bind to ports 80 and 443 then run sudo fuser -k 80/tcp; sudo fuser -k 443/tcp;
 #Certs valid 90 days to test renewal sudo certbot renew --dry-run
 #The Certbot packages on your system come with a cron job that will renew your certificates automatically before they expire
 echo "<<<---------- Certbot/LetsEncrypt - end"
-Commented out end'
 
 echo "Now setup Drupal from #http://<your_home> and then"
 echo "Install CiviCRM on Drupal from #http://<your_drupal_home>/sites/all/modules/civicrm/install/index.php"
