@@ -1,4 +1,4 @@
 create database drupal;
-grant all privileges on drupal.* to drupaluser@localhost identified by 'Kilmarnock1';
+grant all privileges on drupal.* to drupaluser@localhost identified by 'Compucorp1';
 flush privileges;
 exit
