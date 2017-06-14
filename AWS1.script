@@ -107,19 +107,14 @@ sudo apt-get update
 if false; then echo "<<<---------- ERROR sudo apt-get update FAIL"; exit $?; fi
 sudo apt-get install python-certbot-nginx 
 if false; then echo "<<<---------- ERROR sudo apt-get install python-certbot-nginx FAIL"; exit $?; fi
-#sudo certbot --nginx
-#According to the documentation, running this command will get a certificate for you and have Certbot edit your Nginx configuration automatically to serve it 
-#But it does not do that, the following command works but the /etc/nginx/nginx.conf needs to be modified
-sudo certbot certonly --standalone -d dude24x7.co.uk
-if false; then echo "<<<---------- ERROR sudo certbot certonly --standalone -d dude24x7.co.uk FAIL"; exit $?; fi
-sudo cp /etc/nginx/nginx.conf /etc/nginx/nginx.confBAK
-if false; then echo "<<<---------- ERROR sudo cp /etc/nginx/nginx.conf /etc/nginx/nginx.confBAK FAIL"; exit $?; fi
-sudo cp gitdownload/CCTask/nginx.conf /etc/nginx/nginx.conf
-if false; then echo "<<<---------- ERROR sudo cp gitdownload/CCTask/nginx.conf /etc/nginx/nginx.conf FAIL"; exit $?; fi
+sudo certbot --nginx -d dude24x7.co.uk
+#this command will gets a certificate and edits the Nginx configuration automatically to serve it 
+if false; then echo "<<<---------- ERROR sudo certbot --nginx -d dude24x7.co.uk FAIL"; exit $?; fi
 sudo service nginx start
 if false; then echo "<<<---------- ERROR sudo service nginx start FAIL"; exit $?; fi
+#If nginx fails to start due to unable to bind to ports 80 and 443 then run sudo fuser -k 80/tcp; sudo fuser -k 443/tcp;
 #Certs valid 90 days to test renewal sudo certbot renew --dry-run
-#The Certbot packages on your system come with a cron job that will renew your certificates automatically before they expire (allegedly)
+#The Certbot packages on your system come with a cron job that will renew your certificates automatically before they expire
 echo "<<<---------- Certbot/LetsEncrypt - end"
 Commented out end'
 
