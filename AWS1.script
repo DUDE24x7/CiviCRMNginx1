@@ -97,6 +97,10 @@ sudo cp -rf civicrm*/* /var/www/html/sites/all/modules/civicrm/
 if false; then echo "<<<---------- ERROR sudo cp -rf civicrm*/* /var/www/html/sites/all/modules/civicrm/ FAIL"; exit $?; fi
 sudo chmod 755 /var/www/html/sites/default
 if false; then echo "<<<---------- ERROR sudo chmod 755 /var/www/html/sites/default FAIL"; exit $?; fi
+sudo mkdir /var/www/html/sites/civicrm_custom_ext
+if false; then echo "<<<---------- ERROR sudo mkdir /var/www/html/sites/civicrm_custom_ext FAIL"; exit $?; fi
+sudo chown www-data:www-data /var/www/html/sites/civicrm_custom_ext
+if false; then echo "<<<---------- ERROR sudo chown www-data:www-data /var/www/html/sites/civicrm_custom_ext FAIL"; exit $?; fi
 echo "<<<---------- CiviCRM - end"
 
 echo "<<<---------- Certbot/LetsEncrypt - start"
