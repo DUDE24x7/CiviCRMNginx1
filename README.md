@@ -76,7 +76,7 @@ Install Drupal 7 and CiviCRM this server in a secure fashion. You may wish to re
 3 Configure Drupal to have a private files folder (done)
 4 Configure the CiviCRM extension directory correctly (done)
 5 Ensure that the Nginx configuration is secure for CiviCRM (done)
-6 Configure Drupal so that Drupal views can use the CiviCRM database (https://wiki.civicrm.org/confluence/display/CRMDOC/Views3+Integration)
+6 Configure Drupal so that Drupal views can use the CiviCRM database (https://wiki.civicrm.org/confluence/display/CRMDOC/Views3+Integration) (not sure if I have done this correctly)
 
 Setup a suitable backup and recovery script to Amazon S3 using the Backup and Migrate Drupal module and document what will be backed up.
 
