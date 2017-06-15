@@ -81,6 +81,12 @@ if false; then echo "<<<---------- ERROR sudo wget https://ftp.drupal.org/files/
 tar xzf backup_migrate-7.x-3.1.tar.gz
 if false; then echo "<<<---------- ERROR tar xzf backup_migrate-7.x-3.1.tar.gz FAIL"; exit $?; fi
 # Later the Module will need to be configured from Drupal admin panel
+cd /var/www/html/sites/all/modules/backup_migrate/includes
+if false; then echo "<<<---------- ERROR cd /var/www/html/sites/all/modules/backup_migrate/includes FAIL"; exit $?; fi
+sudo wget http://undesigned.org.za/2007/10/22/amazon-s3-php-class
+if false; then echo "<<<---------- ERROR sudo wget http://undesigned.org.za/2007/10/22/amazon-s3-php-class FAIL"; exit $?; fi
+cd
+if false; then echo "<<<---------- ERROR cd FAIL"; exit $?; fi
 echo "<<<---------- DRUPAL - end"
 
 echo "<<<---------- MariaDB for Drupal - start"
