@@ -63,10 +63,24 @@ sudo chmod -R 755 /var/www/html/
 if false; then echo "<<<---------- ERROR sudo chmod -R 755 /var/www/html/ FAIL"; exit $?; fi
 sudo apt-get install php-gd php-dom php7.0-mbstring php-curl php-zip
 if false; then echo "<<<---------- ERROR sudo apt-get install php-gd php-dom php7.0-mbstring php-curl FAIL"; exit $?; fi
+# Private files folder
 sudo mkdir /var/www/drupalprivate
 if false; then echo "<<<---------- ERROR sudo mkdir /var/www/drupalprivate FAIL"; exit $?; fi
 sudo chown www-data:www-data /var/www/drupalprivate
 if false; then echo "<<<---------- ERROR sudo chown www-data:www-data /var/www/drupalprivate FAIL"; exit $?; fi
+# Extension directory 
+sudo mkdir /var/www/html/sites/civicrm_custom_ext
+if false; then echo "<<<---------- ERROR sudo mkdir /var/www/html/sites/civicrm_custom_ext FAIL"; exit $?; fi
+sudo chown www-data:www-data /var/www/html/sites/civicrm_custom_ext
+if false; then echo "<<<---------- ERROR sudo chown www-data:www-data /var/www/html/sites/civicrm_custom_ext FAIL"; exit $?; fi
+# Backup and Migrate Module
+cd /var/www/html/sites/all/modules
+if false; then echo "<<<---------- ERROR cd /var/www/html/sites/all/modules FAIL"; exit $?; fi
+sudo wget https://ftp.drupal.org/files/projects/backup_migrate-7.x-3.1.tar.gz
+if false; then echo "<<<---------- ERROR sudo wget https://ftp.drupal.org/files/projects/backup_migrate-7.x-3.1.tar.gz FAIL"; exit $?; fi
+tar xzf backup_migrate-7.x-3.1.tar.gz
+if false; then echo "<<<---------- ERROR tar xzf backup_migrate-7.x-3.1.tar.gz FAIL"; exit $?; fi
+# Later the Module will need to be configured from Drupal admin panel
 echo "<<<---------- DRUPAL - end"
 
 echo "<<<---------- MariaDB for Drupal - start"
