@@ -81,10 +81,16 @@ if false; then echo "<<<---------- ERROR sudo wget https://ftp.drupal.org/files/
 tar xzf backup_migrate-7.x-3.1.tar.gz
 if false; then echo "<<<---------- ERROR tar xzf backup_migrate-7.x-3.1.tar.gz FAIL"; exit $?; fi
 # Later the Module will need to be configured from Drupal admin panel
+# An additional module is needed due to using PHP7
+cd ~/gitdownload
+git clone https://github.com/tpyo/amazon-s3-php-class.git
+if false; then echo "<<<---------- ERROR git clone https://github.com/tpyo/amazon-s3-php-class.git FAIL"; exit $?; fi
 cd /var/www/html/sites/all/modules/backup_migrate/includes
 if false; then echo "<<<---------- ERROR cd /var/www/html/sites/all/modules/backup_migrate/includes FAIL"; exit $?; fi
-sudo wget http://undesigned.org.za/2007/10/22/amazon-s3-php-class
-if false; then echo "<<<---------- ERROR sudo wget http://undesigned.org.za/2007/10/22/amazon-s3-php-class FAIL"; exit $?; fi
+sudo mkdir s3-php5-curl
+if false; then echo "<<<---------- ERROR s3-php5-curl FAIL"; exit $?; fi
+sudo cp ~/gitdownload/amazon-s3-php-class/S3.php S3.php
+if false; then echo "<<<---------- ERROR ~/gitdownload/amazon-s3-php-class/S3.php S3.php FAIL"; exit $?; fi
 cd
 if false; then echo "<<<---------- ERROR cd FAIL"; exit $?; fi
 echo "<<<---------- DRUPAL - end"
