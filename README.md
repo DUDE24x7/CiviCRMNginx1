@@ -55,6 +55,7 @@ CiviCRM extensions https://wiki.civicrm.org/confluence/display/CRMDOC/Extensions
 Backup and recovery script to Amazon S3 using the Backup and Migrate Drupal module
 https://www.drupal.org/project/backup_migrate
 https://www.lullabot.com/articles/module-monday-backup-and-migrate
+https://www.drupal.org/node/2465951
 
 HTTPS on AWS with Cerbot
 https://certbot.eff.org/#ubuntuxenial-nginx
