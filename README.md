@@ -12,7 +12,7 @@ git config --global user.email “judgemental1@me.com”;
 git config --global core.editor nano;
 mkdir gitdownload;
 cd gitdownload;
-git init;
+#git init;
 git clone https://github.com/DUDE24x7/CCTask.git;
 chmod 700 CCTask/AWS1.script;
 cd;
