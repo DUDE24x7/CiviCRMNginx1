@@ -11,6 +11,7 @@ else
 fi
 
 sudo apt-get update
+if false; then echo "<<<---------- ERROR sudo apt-get update FAIL"; exit $?; fi
 echo "<<<---------- NGINX - Start"
 sudo apt-get install nginx
 if false; then echo "<<<---------- ERROR sudo apt-get install nginx FAIL"; exit $?; fi
