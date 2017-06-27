@@ -14,10 +14,10 @@ mkdir gitdownload;
 cd gitdownload;
 #git init;
 git clone https://github.com/DUDE24x7/CiviCRMNginx1;
-chmod 700 CCTask/AWS1.script;
+chmod 700 CiviCRMNginx1/AWS1.script;
 cd;
 echo "AWS1.script is starting";
-gitdownload/CCTask/AWS1.script;
+gitdownload/CiviCRMNginx1/AWS1.script;
 echo "AWS1.script has ended";
 
 Afterwards setup Drupal from http://<your_home> and then
