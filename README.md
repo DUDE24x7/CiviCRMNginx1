@@ -1,4 +1,4 @@
-# CCiviCRMNginx1
+# CiviCRMNginx1
 
 #create an AWS ubuntu 16.04 server
 #Security group rules: SSH = port 20 (anywhere - normally I would set My Ip); HTTP = port 80 (anywhere); HTTPS = port 443 (anywhere)
