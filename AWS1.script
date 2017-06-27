@@ -3,7 +3,7 @@
 #GIT has already been installed
 
 #ensure the gitdownload directory has been created
-if [ -f gitdownload/CCTask/php.ini ]; then
+if [ -f gitdownload/CiviCRMNginx1/php.ini ]; then
     echo "<<<---------- Starting AWS1.script"
 else
     echo "<<<---------- ERROR gitdownload directory does not exist"
@@ -32,8 +32,8 @@ echo "<<<---------- PHP fastCGI process manager - end"
 echo "<<<---------- Install/Configure PHP fastCGI process manager"
 sudo cp /etc/php/7.0/fpm/php.ini /etc/php/7.0/fpm/php.iniBAK
 if false; then echo "<<<---------- ERROR sudo cp /etc/php/7.0/fpm/php.ini /etc/php/7.0/fpm/php.iniBAK FAIL"; exit $?; fi
-sudo cp gitdownload/CCTask/php.ini /etc/php/7.0/fpm/php.ini
-if false; then echo "<<<---------- ERROR sudo cp gitdownload/CCTask/php.ini /etc/php/7.0/fpm/php.ini FAIL"; exit $?; fi
+sudo cp gitdownload/CiviCRMNginx1/php.ini /etc/php/7.0/fpm/php.ini
+if false; then echo "<<<---------- ERROR sudo cp gitdownload/CiviCRMNginx1/php.ini /etc/php/7.0/fpm/php.ini FAIL"; exit $?; fi
 sudo systemctl restart php7.0-fpm
 if false; then echo "<<<---------- ERROR sudo systemctl restart php7.0-fpm FAIL"; exit $?; fi
 echo "<<<---------- PHP Configured"
@@ -41,8 +41,8 @@ echo "<<<---------- PHP Configured"
 echo "<<<---------- Configure NGINX to use PHP"
 sudo cp /etc/nginx/sites-available/default /etc/nginx/sites-available/defaultBAK
 if false; then echo "<<<---------- ERROR sudo cp /etc/nginx/sites-available/default /etc/nginx/sites-available/defaultBAK FAIL"; exit $?; fi
-sudo cp gitdownload/CCTask/nginxdefault /etc/nginx/sites-available/default
-if false; then echo "<<<---------- ERROR sudo cp gitdownload/CCTask/nginxdefault /etc/nginx/sites-available/default FAIL"; exit $?; fi
+sudo cp gitdownload/CiviCRMNginx1/nginxdefault /etc/nginx/sites-available/default
+if false; then echo "<<<---------- ERROR sudo cp gitdownload/CiviCRMNginx1/nginxdefault /etc/nginx/sites-available/default FAIL"; exit $?; fi
 #sudo nginx –t
 sudo systemctl reload nginx
 if false; then echo "<<<---------- ERROR sudo systemctl reload nginx FAIL"; exit $?; fi
@@ -74,8 +74,8 @@ if false; then echo "<<<---------- ERROR cd FAIL"; exit $?; fi
 echo "<<<---------- DRUPAL - end"
 
 echo "<<<---------- MariaDB for Drupal - start"
-sudo mysql < gitdownload/CCTask/createDB --user=root -p
-if false; then echo "<<<---------- ERROR sudo mysql < gitdownload/CCTask/createDB --user=root -p FAIL"; exit $?; fi
+sudo mysql < gitdownload/CiviCRMNginx1/createDB --user=root -p
+if false; then echo "<<<---------- ERROR sudo mysql < gitdownload/CiviCRMNginx1/createDB --user=root -p FAIL"; exit $?; fi
 sudo systemctl reload nginx
 if false; then echo "<<<---------- ERROR sudo systemctl reload nginx FAIL"; exit $?; fi
 echo "<<<---------- MariaDB for Drupal - end"
