@@ -12,7 +12,6 @@ git config --global user.email “judgemental1@me.com”;
 git config --global core.editor nano;
 mkdir gitdownload;
 cd gitdownload;
-#git init;
 git clone https://github.com/DUDE24x7/CiviCRMNginx1;
 chmod 700 CiviCRMNginx1/AWS1.script;
 cd;
